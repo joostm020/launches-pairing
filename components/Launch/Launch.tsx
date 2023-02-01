@@ -30,7 +30,7 @@ export default function Launch(props) {
 
         return (
             <ul>
-                { Array.prototype.map.call(payloads, payload => <li>{ payload }</li>) }
+                { Array.prototype.map.call(payloads, (payload, key) => <li key={ key }>{ payload }</li>) }
             </ul>
         );
     }
@@ -58,7 +58,7 @@ export default function Launch(props) {
 
         return (
             <ul className={ styles.failuresList }>
-                { Array.prototype.map.call(failures, failure => <li>{ failure.reason }</li>) }
+                { Array.prototype.map.call(failures, (failure, key) => <li key={ key }>{ failure.reason }</li>) }
             </ul>
         )
     };
