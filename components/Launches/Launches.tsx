@@ -4,13 +4,14 @@ import Launch from '../Launch';
 import Button from '../Button';
 
 import { SPACEXDATA_API_V5_LAUNCHES } from './Launches.config';
+import { LaunchesType, LaunchType } from '../../types/Launches/Launches.type';
 
 import styles from './Launches.module.css';
 
 export default function Launches() {
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState('');
-    const [launches, setLaunches] = useState([]);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [error, setError] = useState<string>('');
+    const [launches, setLaunches] = useState<LaunchesType>([]);
 
     useEffect(() => {
         requestLaunches();
@@ -22,7 +23,7 @@ export default function Launches() {
 
         try {
             const response = await fetch(SPACEXDATA_API_V5_LAUNCHES);
-            const data = await response.json();
+            const data: LaunchesType = await response.json();
             setLaunches(data);
             setIsLoading(false);
         } catch (responseError) {
@@ -60,7 +61,7 @@ export default function Launches() {
 
     return (
         <div className={ styles.grid }>
-            { launches.slice(0, 10).map((launch, key) => <Launch key={ key } launch={ launch } />) }
+            { launches.slice(0, 10).map((launch: LaunchType, key) => <Launch key={ key } launch={ launch } />) }
         </div>
     );
 }

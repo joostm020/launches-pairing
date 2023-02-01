@@ -1,8 +1,12 @@
 import Image from 'next/image';
 
+import { LaunchType } from '../../types/Launches/Launches.type';
+
 import styles from './Launch.module.css';
 
-export default function Launch(props) {
+export default function Launch(props: {
+    launch: LaunchType
+}) {
     const {
         launch: {
             name,
