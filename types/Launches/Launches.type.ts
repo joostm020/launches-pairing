@@ -56,16 +56,10 @@ export interface Core {
     landpad: string | null;
 }
 
-enum DatePrecision {
-    Hour = "hour",
-    Day = "day",
-    Month = "month"
-}
-
 export interface Launch {
     fairings: Fairings | null;
     links: Links;
-    static_fire_date_utc: Date | null;
+    static_fire_date_utc: string | null;
     static_fire_date_unix: number | null;
     net: boolean;
     window: number | null;
@@ -83,7 +77,7 @@ export interface Launch {
     date_utc: string;
     date_unix: number;
     date_local: string;
-    date_precision: DatePrecision;
+    date_precision: string;
     upcoming: boolean;
     cores: Core[];
     auto_update: boolean;
