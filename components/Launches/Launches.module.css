@@ -5,3 +5,48 @@
     grid-gap: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr));
 }
+
+.error {
+    min-height: 50vh;
+    display: grid;
+    place-items: center;
+    align-content: center;
+}
+.error h2 {
+    margin: 0;
+}
+
+.loading {
+    min-height: 50vh;
+    display: grid;
+    place-items: center;
+    align-content: center;
+}
+
+.loadingSpinner {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+}
+
+.loadingSpinner:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #ccc;
+    border-color: #ccc transparent #ccc transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
