@@ -7,7 +7,7 @@ import styles from './Launches.module.css';
 export default function Launches() {
     return (
         <div className={styles.grid}>
-            { launchesTestData.slice(0, 10).map(launch => <Launch launch={ launch } />) }
+            { launchesTestData.slice(0, 10).map((launch, key) => <Launch key={ key } launch={ launch } />) }
         </div>
     );
 }
