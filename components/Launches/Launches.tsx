@@ -70,7 +70,7 @@ export default function Launches() {
 
     return (
         <div className={ styles.grid }>
-            { launches.slice(0, 10).map((launch: LaunchType, key) => <Launch key={ key } launch={ launch } />) }
+            { launches.map((launch: LaunchType, key) => <Launch key={ key } launch={ launch } />) }
         </div>
     );
 }
