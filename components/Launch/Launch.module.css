@@ -1,0 +1,76 @@
+.card {
+    display: grid;
+    grid-gap: 1rem;
+    padding: 1rem;
+    color: inherit;
+    text-decoration: none;
+    border: 1px solid #eaeaea;
+    transition: color 0.15s ease, border-color 0.15s ease;
+    overflow: hidden;
+}
+
+.cardSuccess {
+    border: 2px solid #008300;
+}
+.cardFailure {
+    border: 2px solid #c50000;
+}
+
+.name {
+    margin: 0;
+}
+
+.date strong,
+.firstCoreSerialName strong,
+.payloads strong {
+    display: block;
+    font-size: .9rem;
+}
+.date span,
+.firstCoreSerialName span,
+.payloads span {
+    opacity: 0.8;
+    word-break: break-all;
+}
+
+.payloads ul {
+    margin: 0;
+    opacity: 0.8;
+    padding-left: 1.2rem;
+    word-break: break-all;
+}
+
+.image {
+    justify-self: center;
+    height: auto;
+    width: 100%;
+    max-width: 200px;
+}
+
+.failuresList {
+    padding-left: 1.2rem;
+    color: #c50000;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.success {
+    background: #008300;
+    color: #fff;
+    padding: 1rem;
+    margin: -1rem;
+    margin-block-start: 0;
+    text-align: center;
+    letter-spacing: 0.5rem;
+}
+
+.failure {
+    background: #c50000;
+    color: #fff;
+    padding: 1rem;
+    margin: -1rem;
+    margin-block-start: 0;
+    text-align: center;
+    letter-spacing: 0.5rem;
+}
+
