@@ -2,12 +2,14 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 
+import Launches from '../components/Launches';
+
 export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Last 10 SpaceX launches</title>
-        <meta name="description" content="Last 10 SpaceX launches" />
+        <title>Data SpaceX launches</title>
+        <meta name="description" content="Data SpaceX launches" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -16,7 +18,7 @@ export default function Home() {
             Data <a href="#">SpaceX</a> launches
         </h1>
 
-        {/* Launches component here */}
+        <Launches/>
       </main>
 
       <footer className={styles.footer}>
