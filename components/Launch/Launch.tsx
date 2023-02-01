@@ -29,11 +29,11 @@ export default function Launch(props: {
 
     const renderPayloads = () => {
         if (!payloads.length) {
-            return <span>None</span>;
+            return <span data-testid='launch-payloads'>None</span>;
         }
 
         return (
-            <ul>
+            <ul data-testid='launch-payloads'>
                 { Array.prototype.map.call(payloads, (payload, key) => <li key={ key }>{ payload }</li>) }
             </ul>
         );
@@ -46,6 +46,7 @@ export default function Launch(props: {
 
         return (
             <Image
+                data-testid='launch-image'
                 className={ styles.image }
                 src={ smallImage }
                 alt={ `${name} logo` }
@@ -61,7 +62,7 @@ export default function Launch(props: {
         }
 
         return (
-            <ul className={ styles.failuresList }>
+            <ul data-testid='launch-failures-list' className={ styles.failuresList }>
                 { Array.prototype.map.call(failures, (failure, key) => <li key={ key }>{ failure.reason }</li>) }
             </ul>
         )
@@ -70,14 +71,14 @@ export default function Launch(props: {
     const renderStatus = () => {
         if (success) {
             return (
-                <div className={ styles.success }>
+                <div data-testid='launch-succeeded' className={ styles.success }>
                     <span>SUCCEEDED</span>
                 </div>
             )
         }
 
         return (
-            <div className={ styles.failure }>
+            <div data-testid='launch-failed' className={ styles.failure }>
                 <span>FAILED</span>
             </div>
         );
@@ -94,15 +95,15 @@ export default function Launch(props: {
     };
 
     return ( // className={styles.card}
-        <div className={ getCardClasses() }>
-            <h2 className={ styles.name }>{ name }</h2>
+        <div data-testid='launch' className={ getCardClasses() }>
+            <h2 data-testid='launch-name' className={ styles.name }>{ name || 'Unknown' }</h2>
             <div className={ styles.date }>
-                <strong>Date</strong>
-                <span>{ date_utc }</span>
+                <strong>Launch date</strong>
+                <span data-testid='launch-date'>{ date_utc || 'Not specified' }</span>
             </div>
             <div className={ styles.firstCoreSerialName }>
                 <strong>First core serial</strong>
-                <span>{ firstCoreSerialName }</span>
+                <span data-testid='launch-first-core-serial'>{ firstCoreSerialName || 'n/a' }</span>
             </div>
             <div className={ styles.payloads }>
                 <strong>Payloads</strong>
