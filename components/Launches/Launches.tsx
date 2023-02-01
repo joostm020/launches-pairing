@@ -50,6 +50,14 @@ export default function Launches() {
         );
     }
 
+    if (!launches.length) {
+        return (
+            <div className={ styles.empty }>
+                <p>No launch data to show, empty result.</p>
+            </div>
+        );
+    }
+
     return (
         <div className={ styles.grid }>
             { launches.slice(0, 10).map((launch, key) => <Launch key={ key } launch={ launch } />) }
