@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import Launch from '../Launch';
 import Button from '../Button';
 
-import { SPACEXDATA_API_V5_LAUNCHES } from './Launches.config';
+import { LAUNCHES_API_URL } from './Launches.config';
 import { LaunchesType, LaunchType } from '../../types/Launches/Launches.type';
 
 import styles from './Launches.module.css';
@@ -17,13 +17,22 @@ export default function Launches() {
         requestLaunches();
     }, []);
 
+    async function getData() {
+        const res = await fetch(LAUNCHES_API_URL);
+
+        if (!res.ok) {
+            throw new Error('Failed to fetch data');
+        }
+
+        return res.json();
+    }
+
     const requestLaunches = async () => {
         setError('');
         setIsLoading(true);
 
         try {
-            const response = await fetch(SPACEXDATA_API_V5_LAUNCHES);
-            const data: LaunchesType = await response.json();
+            const data: LaunchesType = await getData();
             setLaunches(data);
             setIsLoading(false);
         } catch (responseError) {
