@@ -80,9 +80,9 @@ export interface Launch {
     launchpad: string;
     flight_number: number;
     name: string;
-    date_utc: Date;
+    date_utc: string;
     date_unix: number;
-    date_local: Date;
+    date_local: string;
     date_precision: DatePrecision;
     upcoming: boolean;
     cores: Core[];
@@ -92,4 +92,5 @@ export interface Launch {
     id: string;
 }
 
+export type LaunchType = Launch;
 export type LaunchesType = Launch[];
