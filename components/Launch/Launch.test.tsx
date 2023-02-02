@@ -36,7 +36,7 @@ const launch: LaunchType = {
     "net": false,
     "window": 0,
     "rocket": "5e9d0d95eda69955f709d1eb",
-    "success": false,
+    "success": true,
     "failures": [
         {
             "time": 33,
@@ -111,13 +111,7 @@ const emptyLaunch: LaunchType = {
     "window": 0,
     "rocket": "5e9d0d95eda69955f709d1eb",
     "success": false,
-    "failures": [
-        {
-            "time": 33,
-            "altitude": null,
-            "reason": "merlin engine failure"
-        }
-    ],
+    "failures": [],
     "details": "Engine failure at 33 seconds and loss of vehicle",
     "crew": [],
     "ships": [],
@@ -192,16 +186,32 @@ test('Launch card renders image', () => {
     expect(element).toBeInTheDocument();
 });
 
-test('Launch card renders null image', () => {
+test('Launch card renders no image', () => {
     render(<Launch launch={ emptyLaunch } />);
     const element = screen.queryByTestId('launch-image');
     expect(element).toBeNull();
 });
 
-/**
- * Tests to make:
- * - Launch card renders failure(s)
- * - Launch card renders no failure(s)
- * - Launch card renders "succeeded"
- * - Launch card renders "failed"
- */
+test('Launch card renders failures', () => {
+    render(<Launch launch={ launch } />);
+    const element = screen.getByTestId('launch-failures-list');
+    expect(element).toHaveTextContent('merlin engine failure');
+});
+
+test('Launch card renders no failures', () => {
+    render(<Launch launch={ emptyLaunch } />);
+    const element = screen.queryByTestId('launch-failures-list');
+    expect(element).toBeNull();
+});
+
+test('Launch card renders succeeded', () => {
+    render(<Launch launch={ launch } />);
+    const element = screen.queryByTestId('launch-succeeded');
+    expect(element).toBeInTheDocument();
+});
+
+test('Launch card renders failed', () => {
+    render(<Launch launch={ emptyLaunch } />);
+    const element = screen.queryByTestId('launch-failed');
+    expect(element).toBeInTheDocument();
+});
