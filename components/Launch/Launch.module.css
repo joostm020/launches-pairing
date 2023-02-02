@@ -1,5 +1,6 @@
 .card {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     grid-gap: 1rem;
     padding: 1rem;
     color: inherit;
@@ -41,7 +42,7 @@
 }
 
 .image {
-    justify-self: center;
+    align-self: center;
     height: auto;
     width: 100%;
     max-width: 200px;
@@ -55,22 +56,34 @@
 }
 
 .success {
+    margin-block-start: 1rem;
+    text-align: center;
+    letter-spacing: 0.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.success div {
     background: #008300;
     color: #fff;
     padding: 1rem;
     margin: -1rem;
-    margin-block-start: 0;
-    text-align: center;
-    letter-spacing: 0.5rem;
 }
 
 .failure {
+    margin-block-start: 1rem;
+    text-align: center;
+    letter-spacing: 0.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.failure div {
     background: #c50000;
     color: #fff;
     padding: 1rem;
     margin: -1rem;
-    margin-block-start: 0;
-    text-align: center;
-    letter-spacing: 0.5rem;
 }
 

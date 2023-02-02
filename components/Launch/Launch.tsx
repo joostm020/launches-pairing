@@ -72,14 +72,14 @@ export default function Launch(props: {
         if (success) {
             return (
                 <div data-testid='launch-succeeded' className={ styles.success }>
-                    <span>SUCCEEDED</span>
+                    <div>SUCCEEDED</div>
                 </div>
             )
         }
 
         return (
             <div data-testid='launch-failed' className={ styles.failure }>
-                <span>FAILED</span>
+                <div>FAILED</div>
             </div>
         );
     };
